@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Лабораторная работа №2</h1>
+
+            <h2>Список продуктов</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Наименование</th>
+                  <th>Ед измерения</th>
+                  <th>Адрес производителя</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for d in producty %}
+                        <tr>
+                            <th scope="row">{{ d.id }}</th>
+                            <td>{{ d.Naimenovanie }}</td>
+                            <td>{{ d.ed_izmereniya }}</td>
+                            <td>{{ d.Adres_proizvoditelya }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Склады</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Наименование</th>
+                  <th>Адрес склада</th>
+                  <th>Город</th>
+                  <th>Круглосуточно</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for s in sklady %}
+                        <tr>
+                            <th scope="row">{{ s.id }}</th>
+                            <td>{{ s.naimenovanie }}</td>
+                            <td>{{ s.address_sklada }}</td>
+                            <td>{{ s.gorod }}</td>
+                            <td>{{ s.kruglosutochno }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Поставки</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Продукты</th>
+                  <th>Склады</th>
+                  <th>Операция</th>
+                  <th>Количество</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for a in postavki %}
+                        <tr>
+                            <th scope="row">{{ a.id }}</th>
+                            <td>{{ a.produkty.Naimenovanie }}</td>
+                            <td>{{ a.sklady.naimenovanie }}</td>
+                            <td>{{ a.operaciya }}</td>
+                            <td>{{ a.kolichestvo }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h4></h4>
+            <h4></h4>
+        </div>
+	</body>
+</html>
